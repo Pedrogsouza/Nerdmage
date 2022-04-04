@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00d4ff"> 
+    <title>NerdMage</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon"  href="image/mago.png">
+  </head>
+
+  <body>
+    <section>
+      <div class="bannervideo" id="slideShow">
+        <video src="video/video1.mp4" autoplay muted loop class="active"></video>
+        <video src="video/video2.mp4" autoplay muted loop></video>
+        <video src="video/video3.mp4" autoplay muted loop></video>
+      </div>
+      <div class="container">
+        <header id="navbar">
+          <a href="#" class="logo">ΝerdMage ©</a>
+          <ul>
+            <li><a href="index.html"class="active">Home</a></li>
+            <li><a href="login/index.html">Login</a></li>
+            <li><a href="#">Loja virtual</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">Animes</a></li>
+            <li><a href="#">Filmes</a></li>
+            <div id="marker"></div>
+          </ul>
+          <span class="menuIcon" onclick="toggleMenu();"></span>
+        
+        </header>
+        <div class="content">
+          <div class="bannerText" id="slideShowText">
+            <div class="active">
+            <h2>Games</h2>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing <br>
+              elit. Tempora sit obcaecati blanditiis cupiditate  <br>
+              similique aperiam laudantium magni quibusdam illo  <br>
+             assumenda veritatis, non cumque ut fugit. Dolorem   <br>
+             quidem ullam distinctio</p>
+          </div>
+            <div>
+              <h2>Animes</h2>
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing <br>
+                elit. Tempora sit obcaecati blanditiis cupiditate  <br>
+                similique aperiam laudantium magni quibusdam illo  <br>
+               assumenda veritatis, non cumque ut fugit. Dolorem   <br>
+               quidem ullam distinctio</p>
+            </div>
+            <div>
+              <h2>Filmes <br>
+                  e
+                  Series </h2>
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing <br>
+                elit. Tempora sit obcaecati blanditiis cupiditate  <br>
+                similique aperiam laudantium magni quibusdam illo  <br>
+               assumenda veritatis, non cumque ut fugit. Dolorem   <br>
+               quidem ullam distinctio</p>
+            </div>
+          </div>
+        </div>  
+
+         <ul class="sci">
+          <li><a href="https://github.com/Pedrogsouza"><img src="image/github.png"></a></li>
+        </ul>
+      </div>
+
+
+        <ul class="controls"> 
+          <li onclick="prevSlide();prevSlideText();"><img src="image/left.png"></li>
+          <li onclick="nextSlide();nextSlideText();"><img src="image/right.png"></li>
+        </ul>
+      </div>
+    </section>
+    <script>
+      const slideShow = document.getElementById('slideShow');
+      const slides = slideShow.getElementsByTagName('video');
+      var index = 0;
+      function nextSlide(){
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+      }
+      function prevSlide(){
+        slides[index].classList.remove('active');
+        index = (index - 1 + slides.length) % slides.length;
+        slides[index].classList.add('active');
+
+
+
+
+      }
+      const slideShowText = document.getElementById('slideShowText');
+      const slidesText = slideShowText.getElementsByTagName('div');
+      var i = 0;
+      function nextSlideText(){
+        slidesText[i].classList.remove('active');
+        i = (i + 1) % slidesText.length;
+        slidesText[i].classList.add('active');
+      }
+      function prevSlideText(){
+        slidesText[i].classList.remove('active');
+        i = (i - 1 + slidesText.length) % slidesText.length;
+        slidesText[i].classList.add('active');
+      }
+
+      function toggleMenu(){
+        const menuIcon = document.querySelector('.menuIcon');
+        const navbar = document.getElementById('navbar');
+        menuIcon.classList.toggle('active');
+        navbar.classList.toggle('active')
+      }
+    </script>
+  </body>
+</html>
